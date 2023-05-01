@@ -1,0 +1,30 @@
+{
+  "name": "@andyluo/eslint-config",
+  "version": "0.0.1",
+  "description": "",
+  "author": "Andy Luo <frank87010217@gmail.com> (https://github.com/andylou0102/)",
+  "license": "MIT",
+  "main": "index.js",
+  "files": [
+    "*.js"
+  ],
+  "engines": {
+    "node": ">=16",
+    "pnpm": ">=7"
+  },
+  "scripts": {
+    "lint": "eslint --ext .ts,.tsx,.js,.jsx,.json,.vue --fix .",
+    "release": "bumpp -r && pnpm publish --access public"
+  },
+  "peerDependencies": {
+    "eslint": ">=7.4.0"
+  },
+  "dependencies": {
+    "@antfu/eslint-config": "0.38.5"
+  },
+  "devDependencies": {
+    "bumpp": "^9.1.0",
+    "eslint": "^8.39.0",
+    "typescript": "^5.0.4"
+  }
+}
