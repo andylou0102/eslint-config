@@ -14,7 +14,7 @@
   },
   "scripts": {
     "lint": "eslint --ext .ts,.tsx,.js,.jsx,.json,.vue --fix .",
-    "release": "bumpp --commit --push --tag && cp .eslintrc.js index.js && pnpm publish --access public && rm index.js"
+    "release": "bumpp --commit --push --tag && copy .eslintrc.js index.js && pnpm publish --access public && rm index.js"
   },
   "peerDependencies": {
     "eslint": ">=7.4.0"
