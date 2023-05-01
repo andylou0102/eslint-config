@@ -1,6 +1,6 @@
 # @andyluo/eslint-config
 
-
+[![npm](https://img.shields.io/npm/v/@andyluo/eslint-config)](https://www.npmjs.com/package/@andyluo/eslint-config)
 
 Extends [`@antfu/eslint-config`](https://github.com/antfu/eslint-config)
 
