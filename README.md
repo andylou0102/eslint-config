@@ -27,7 +27,7 @@ dist
 node_modules
 ```
 
-### Add script for package.json
+### package.json
 
 For example:
 
