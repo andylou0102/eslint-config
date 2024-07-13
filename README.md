@@ -9,15 +9,17 @@ Extends [`@antfu/eslint-config`](https://github.com/antfu/eslint-config)
 ### Install
 
 ```bash
+npm install eslint @andyluo/eslint-config -D
 pnpm add -D eslint @andyluo/eslint-config
 ```
 
-### Config `.eslintrc`
+### Config `.eslint.config.js`
 
-```json
-{
-  "extends": "@andyluo"
-}
+```js
+import andyluo from '@andyluo/eslint-config'
+export default [
+  andyluo,
+]
 ```
 
 ### Config `.eslintignore`
