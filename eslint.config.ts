@@ -1,3 +1,3 @@
-import andyLuo from "./src"
+import andyLuo from './src'
 
 export default andyLuo()

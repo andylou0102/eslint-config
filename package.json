@@ -9,21 +9,27 @@
       "import": {
 				"types": "./dist/index.d.ts",
 				"default": "./dist/index.js"
+			},
+      "require": {
+				"types": "./dist/index.d.cts",
+				"default": "./dist/index.cjs"
 			}
     }
   },
-  "main": "./dist/index.js",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "engines": {
-    "node": ">=16",
+    "node": ">=21",
     "pnpm": ">=7"
   },
   "scripts": {
-    "build": "tsup src/index.ts --clean --dts",
+    "build": "tsup --clean --dts",
     "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "release": "bumpp && pnpm publish",
     "dev": "npx @eslint/config-inspector --config eslint.config.ts"
   },
