@@ -1,7 +1,7 @@
 {
   "name": "@andyluo/eslint-config",
   "type": "module",
-  "version": "2.2.1",
+  "version": "2.3.0",
   "description": "",
   "author": "Andy Luo <frank87010217@gmail.com> (https://github.com/andylou0102/)",
   "license": "MIT",
