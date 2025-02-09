@@ -2,9 +2,14 @@ import antfu from '@antfu/eslint-config'
 
 export default antfu(
   {
+    vue: true,
+    typescript: true,
+  },
+  // vue
+  {
+    files: ['**/*.vue'],
     rules: {
-      // vue
-      'vue/component-tags-order': [
+      'vue/block-order': [
         'error',
         {
           order: [
@@ -13,19 +18,20 @@ export default antfu(
             'script[setup]',
             'style:not([scoped])',
             'style[scoped]',
-          ]
-        }
+          ],
+        },
       ],
+      'vue/brace-style': ['error', '1tbs', { allowSingleLine: true }],
+    },
+  },
+  {
+    rules: {
       // js / ts
-      '@typescript-eslint/brace-style': ['error', '1tbs', { allowSingleLine: true }],
-      '@typescript-eslint/space-before-function-paren': ['error', 'always'],
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', ignoreRestSiblings: true }],
       'prefer-promise-reject-errors': 'off',
-      'max-len': 'off',
       'no-underscore-dangle': 'off',
       'no-shadow': 'off',
       'no-param-reassign': ['error', { props: false }],
-    }
-  }
+    },
+  },
 )
-
