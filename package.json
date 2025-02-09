@@ -5,7 +5,12 @@
   "author": "Andy Luo <frank87010217@gmail.com> (https://github.com/andylou0102/)",
   "license": "MIT",
   "exports": {
-    ".": "./dist/index.js"
+    ".": {
+      "import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.js"
+			}
+    }
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -17,7 +22,7 @@
     "pnpm": ">=7"
   },
   "scripts": {
-    "build": "tsup --clean --dts",
+    "build": "tsup src/index.ts --clean --dts",
     "lint": "eslint .",
     "release": "bumpp && pnpm publish",
     "dev": "npx @eslint/config-inspector --config eslint.config.ts"
