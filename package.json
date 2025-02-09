@@ -4,27 +4,35 @@
   "description": "",
   "author": "Andy Luo <frank87010217@gmail.com> (https://github.com/andylou0102/)",
   "license": "MIT",
-  "main": "index.js",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "files": [
-    "index.js"
+    "dist"
   ],
   "engines": {
     "node": ">=16",
     "pnpm": ">=7"
   },
   "scripts": {
+    "build": "tsup --clean --dts",
     "lint": "eslint .",
-    "release": "bumpp --commit --push --tag && copy eslint.config.js index.js && pnpm publish --access public && rm index.js",
+    "release": "bumpp && pnpm publish",
     "dev": "npx @eslint/config-inspector --config eslint.config.ts"
   },
   "peerDependencies": {
     "eslint": ">=7.4.0"
   },
+  "dependencies": {
+    "@antfu/eslint-config": "4.1.1"
+  },
   "devDependencies": {
-    "@antfu/eslint-config": "4.1.1",
     "@eslint/config-inspector": "^1.0.0",
     "bumpp": "^9.11.1",
     "eslint": "^9.20.0",
+    "tsup": "^8.3.6",
     "typescript": "^5.7.3"
   }
 }
