@@ -1,4 +1,3 @@
-// eslint-disable-next-line antfu/no-import-dist
-import andyLuo from './dist/index.mjs'
+import andyLuo from './src'
 
 export default andyLuo()
