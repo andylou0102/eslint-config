@@ -1,17 +1,27 @@
-import { antfu } from '@antfu/eslint-config'
+import { antfu, type OptionsConfig } from '@antfu/eslint-config'
 
 type FactoryFn = typeof antfu
 
-const andyLuo: FactoryFn = () => {
-  return antfu(
-    {
-      vue: true,
-      typescript: true,
+const andyLuo: FactoryFn = (options?, ...config) => {
+  const mergedOptions: OptionsConfig = {
+    ...options,
+    javascript: typeof options?.javascript === 'boolean' ? options.javascript : {
+      overrides: {
+        'prefer-promise-reject-errors': 'off',
+        'no-underscore-dangle': 'off',
+        'no-shadow': 'off',
+        'no-param-reassign': ['error', { props: false }],
+        ...options?.javascript?.overrides
+      }
     },
-    // vue
-    {
-      files: ['**/*.vue'],
-      rules: {
+    typescript: typeof options?.typescript === 'boolean' ? options.typescript : {
+      overrides: {
+        'no-unused-vars': ['error', { argsIgnorePattern: '^_', ignoreRestSiblings: true }],
+        ...options?.typescript?.overrides
+      }
+    },
+    vue: typeof options?.vue === 'boolean' ? options.vue : {
+      overrides: {
         'vue/block-order': [
           'error',
           {
@@ -25,19 +35,11 @@ const andyLuo: FactoryFn = () => {
           },
         ],
         'vue/brace-style': ['error', '1tbs', { allowSingleLine: true }],
-      },
+        ...options?.vue?.overrides
+      }
     },
-    {
-      rules: {
-        // js / ts
-        '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', ignoreRestSiblings: true }],
-        'prefer-promise-reject-errors': 'off',
-        'no-underscore-dangle': 'off',
-        'no-shadow': 'off',
-        'no-param-reassign': ['error', { props: false }],
-      },
-    },
-  )
+  }
+  return antfu(mergedOptions, ...config)
 }
 
 export default andyLuo
